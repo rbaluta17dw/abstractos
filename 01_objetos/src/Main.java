@@ -27,7 +27,7 @@ public class Main {
 		String apellido = scan.nextLine();
 		persona.setApellido(apellido);
 		System.out.println("Tu avatar se llama " + persona.getNombre() + " " + persona.getApellido());
-		persona.setPeso(Math.random() * 70 + 40);
+		persona.setPeso(Math.random() * 60 + 40);
 		System.out.println(persona.getNombre() + " pesa " + (Math.round(persona.getPeso() * 100d) / 100d) + " KG");
 		System.out.println("¿Cuantos años tiene " + persona.getNombre() + "?");
 		int edad = Integer.parseInt(scan.nextLine());
@@ -71,21 +71,21 @@ public class Main {
 						if (token_comida < 3) {
 							persona.comer();
 							token_comida = token_comida + 1;
-							hambre = hambre -3;
+							hambre = hambre - 3;
 						} else {
 							System.out.println(persona.getNombre() + " no puede comer mas");
 							i = i--;
-							hambre = hambre -1;
+							hambre = hambre - 1;
 						}
 						break;
 					case CORRER:
 						if (token_correr < 2) {
 							persona.correr();
-							token_correr = token_correr +1;
+							token_correr = token_correr + 1;
 						} else {
 							System.out.println(persona.getNombre() + " no puede correr mas");
 							i = i - 1;
-							hambre = hambre -1;
+							hambre = hambre - 1;
 						}
 
 						break;
@@ -96,13 +96,14 @@ public class Main {
 						} else {
 							System.out.println("Aun no se puede dormir");
 							i = i - 1;
-							hambre = hambre -1;
+							hambre = hambre - 1;
 						}
 						break;
 					case TRABAJAR:
-						if (persona.getTrabajo().equals(null)){
+						if (persona.getTrabajo().equals(null)) {
 							System.out.println("¿" + persona.getNombre() + " no tiene trabajo, quieres buscar uno?");
 						}
+
 						break;
 					case INFO:
 						System.out.println("Nombre\n" + persona.getNombre());
@@ -110,7 +111,7 @@ public class Main {
 						System.out.println("Edad\n" + persona.getEdad());
 						System.out.println("Peso\n" + (Math.round(persona.getPeso() * 100d) / 100d) + " KG");
 						i = i - 1;
-						hambre = hambre -1;
+						hambre = hambre - 1;
 						break;
 					case SALIR:
 						System.exit(1);
