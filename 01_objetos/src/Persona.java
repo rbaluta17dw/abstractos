@@ -6,9 +6,11 @@ public class Persona {
 	private String apellido;
 	private int edad;
 	private double peso;
+	private String telefono;
 	private String trabajo;
 	private double dinero;
-	Date Fecha_Nacimiento = new Date(1998 / 12 / 6);
+	private String DNI;
+	private Date Fecha_Nacimiento = new Date(1998 / 12 / 6);
 
 	// metodos public
 	public void trabajar() {
@@ -91,6 +93,35 @@ public class Persona {
 
 	public void setDinero(double dinero) {
 		this.dinero = dinero;
+	}
+
+	public Date getFecha_Nacimiento() {
+		return Fecha_Nacimiento;
+	}
+
+	public void setFecha_Nacimiento(Date fecha_Nacimiento) {
+		Fecha_Nacimiento = fecha_Nacimiento;
+	}
+
+	public int cumplirAno() {
+		this.edad++;
+		return edad;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getDNI() {
+		return DNI;
+	}
+
+	public void setDNI(String dNI) {
+		DNI = dNI;
 	}
 
 }
