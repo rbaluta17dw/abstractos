@@ -44,9 +44,16 @@ public class Festival {
 		this.actuaciones.add(a);
 	}
 	
-	public void removeActuacion(String actuacion){
-		System.out.println("¿Que actuacion quieres eliminar?");
+	public void removeActuacion(String grupo){
+		System.out.println("¿Que grupo quieres eliminar?");
 		Iterator<Actuacion> i = actuaciones.iterator();
+		while (i.hasNext()){
+			Actuacion a = i.next();
+			if (a.getNombreGrupo().equals(grupo)){
+				i.remove();
+				System.out.println(a.getNombreGrupo() + " ha sido eliminado");
+			}
+		}
 	}
 	public void cambiarDuracionActuacion(String nombre_grupo, int duracion){
 		for(int i = 0; i < this.actuaciones.size();i++){
