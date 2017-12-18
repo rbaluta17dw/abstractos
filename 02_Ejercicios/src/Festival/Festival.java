@@ -44,6 +44,19 @@ public class Festival {
 		this.actuaciones.add(a);
 	}
 	
+	public void removeActuacion(String actuacion){
+		System.out.println("¿Que actuacion quieres eliminar?");
+		Iterator<Actuacion> i = actuaciones.iterator();
+	}
+	public void cambiarDuracionActuacion(String nombre_grupo, int duracion){
+		for(int i = 0; i < this.actuaciones.size();i++){
+			if (this.actuaciones.get(i).getNombreGrupo().equals(nombre_grupo)){
+				Actuacion a = this.actuaciones.get(i);
+				a.setDuracion(duracion);
+				this.actuaciones.set(i, a);
+			}
+		}
+	}
 	public void mostrarInfo(){
 		System.out.println(getNombre());
 		System.out.println("-----------------");
