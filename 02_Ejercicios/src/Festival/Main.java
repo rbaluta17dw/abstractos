@@ -60,9 +60,9 @@ public class Main {
 		f1.addActuacion(a4);
 		f1.addActuacion("Disturbed", 50);
 		f1.addActuacion("El reno renardo", 100);
-		
-		
+		f1.cambiarDuracionActuacion("Disturbed", 60);
 		f1.mostrarInfo();
+		f1.removeActuacion();
 		
 	}
 

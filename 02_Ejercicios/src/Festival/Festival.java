@@ -2,6 +2,7 @@ package Festival;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Festival {
 	private String nombre;
@@ -35,46 +36,60 @@ public class Festival {
 	public void addActuacion(Actuacion actuacion) {
 		this.actuaciones.add(actuacion);
 	}
-	
-	public void addActuacion(String nombre, int duracion){
+
+	public void addActuacion(String nombre, int duracion) {
 		Actuacion a = new Actuacion();
 		a.setNombreGrupo(nombre);
 		a.setDuracion(duracion);
-		
+
 		this.actuaciones.add(a);
 	}
-	
-	public void removeActuacion(String grupo){
+
+	public void removeActuacion() {
+		Scanner scan = new Scanner(System.in);
 		System.out.println("¿Que grupo quieres eliminar?");
+		String grupo = scan.nextLine();
 		Iterator<Actuacion> i = actuaciones.iterator();
-		while (i.hasNext()){
+		while (i.hasNext()) {
 			Actuacion a = i.next();
-			if (a.getNombreGrupo().equals(grupo)){
+			if (a.getNombreGrupo().equals(grupo)) {
 				i.remove();
 				System.out.println(a.getNombreGrupo() + " ha sido eliminado");
 			}
 		}
 	}
-	public void cambiarDuracionActuacion(String nombre_grupo, int duracion){
-		for(int i = 0; i < this.actuaciones.size();i++){
-			if (this.actuaciones.get(i).getNombreGrupo().equals(nombre_grupo)){
+
+	public void cambiarDuracionActuacion(String nombre_grupo, int duracion) {
+		for (int i = 0; i < this.actuaciones.size(); i++) {
+			if (this.actuaciones.get(i).getNombreGrupo().equals(nombre_grupo)) {
 				Actuacion a = this.actuaciones.get(i);
 				a.setDuracion(duracion);
 				this.actuaciones.set(i, a);
 			}
 		}
 	}
-	public void mostrarInfo(){
+
+	public void duracionFestival() {
+		int duracionTotal = 0;
+		for (int i = 0; i < this.actuaciones.size(); i++) {
+			Actuacion a = actuaciones.get(i);
+			duracionTotal = duracionTotal + a.getDuracion();
+		}
+		System.out.println(duracionTotal + " minutos de musica!");
+	}
+
+	public void mostrarInfo() {
 		System.out.println(getNombre());
 		System.out.println("-----------------");
 		System.out.println("Patrocinado por: " + getPatrocinador());
-		
+
 		Iterator<Actuacion> i = actuaciones.iterator();
-		
-		while (i.hasNext()){
+
+		while (i.hasNext()) {
 			String infoActuacion = i.next().getInfo();
 			System.out.println(infoActuacion);
 		}
+		duracionFestival();
 	}
-	
+
 }
