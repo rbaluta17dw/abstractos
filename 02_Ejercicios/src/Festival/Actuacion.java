@@ -21,8 +21,9 @@ public class Actuacion {
 	}
 
 	public String getInfo() {
-		String info = this.getNombreGrupo() + " : " + this.getDuracion();
+		String info = this.getNombreGrupo() + ":" + this.getDuracion();
 
 		return info;
 	}
+
 }
