@@ -1,4 +1,4 @@
-package futbol;
+package interfaz;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-import Festival.Actuacion;
-
-public class PartidoFutbol {
+public class PartidoFutbol implements Mostrator {
 	private String visitante;
 	private String local;
 	private int golesLocal;
@@ -97,10 +95,7 @@ public class PartidoFutbol {
 		}
 	}
 
-	private String getInfo() {
-		String info = local + ":" + golesLocal + ":" + visitante + ":" + golesVisitante;
-		return info;
-	}
+
 	
 	private String showInfo(){
 		String info = local + " " + golesLocal + ":" + visitante + " " + golesVisitante;
@@ -132,9 +127,9 @@ public class PartidoFutbol {
 			if (a.getLocal().equals(nombreEquipo)) {
 				i.remove();
 				System.out.println("el partido de " + a.getLocal() + " ha sido eliminado");
-			} else if (a.getVisitante().equals(nombreEquipo)) {
+			} else if (a.getLocal().equals(nombreEquipo)) {
 				i.remove();
-				System.out.println("el partido de " + a.getVisitante() + " ha sido eliminado");
+				System.out.println("el partido de " + a.getLocal() + " ha sido eliminado");
 			}
 		}
 
@@ -160,5 +155,16 @@ public class PartidoFutbol {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void mostrar() {
+		System.out.println(getInfo());
+	}
+
+	@Override
+	public String getInfo() {
+		String info = local + ":" + golesLocal + ":" + visitante + ":" + golesVisitante;
+		return info;
 	}
 }

@@ -25,7 +25,6 @@ public class MainPartido {
 			System.out.println(LEER + " Leer la lista de los partidos");
 			System.out.println(ACTUALIZAR + " Cambiar el marcador de un equipo");
 			System.out.println(BORRAR + " Borrar un partido de la lista");
-			System.out.println(LEER + " Leer la lista de los partidos");
 			System.out.println(SALIR + " Salir del menu");
 
 			opcion = Integer.parseInt(scan.nextLine());
@@ -43,7 +42,8 @@ public class MainPartido {
 				int golesVisitante = Integer.parseInt(scan.nextLine());
 				PartidoFutbol partido = new PartidoFutbol(local, visitante, golesLocal, golesVisitante);
 				partidos.add(partido);
-
+				System.out.println("Guardando lista...");
+				PartidoFutbol.guardarLista(partidos, fichero);
 				break;
 			case LEER:
 				PartidoFutbol.mostrarInfo(partidos);
@@ -60,10 +60,11 @@ public class MainPartido {
 				System.out.println("Nombre del equipo del que quieres borrar el partido");
 				String nombreEquipo = scan.nextLine();
 				PartidoFutbol.eliminarPartido(nombreEquipo, partidos);
-				break;
-			case SALIR:
 				System.out.println("Guardando lista...");
 				PartidoFutbol.guardarLista(partidos, fichero);
+				break;
+			case SALIR:
+				System.out.println("Saliendo...");
 				break;
 			default:
 				System.out.println("Opcion mal");
